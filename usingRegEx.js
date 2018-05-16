@@ -22,7 +22,7 @@ function emails(text){
 // emails(text);
 
 function nums(text){
-    var num = text.match(/\+.*\d/g);
+    var num = text.match(/\+.*/g);
     console.log(num);
 }
 // nums(text);
@@ -36,7 +36,7 @@ function names(text){
     })
     console.log(names);
 }
-// names(text);
+names(text);
 
 
 
