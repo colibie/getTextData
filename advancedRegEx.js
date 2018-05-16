@@ -1,7 +1,7 @@
 //Exercises
 //1.	Write a function to validate HTML colours. Example #AACCFF
 //2.	Given let text = `During today's presentation "Valentine Oragbakosi" presented first followed by "Nwosu Ifeoma Lucia" and then "Ibe Agwu" after which "Chinonso Williams Junior", "Ndife Uchenna", "Ehiogu Chika Josephine" and finally "Chidera Jennifer". "Ebuka " will be presenting tomorrow.`
-//Create a RegExp to return an array of all everyone in the text
+//        Create a RegExp to return an array of all everyone in the text
 //3		Given any text, write a RegExp that parses the text and returns the same text but
 //		replaces every url in the text with a link.
 //		e.g 'Visit http://genesystechhub.com for more information about Genesys'
@@ -21,14 +21,13 @@ function checkColour(color){
 }
 checkColour('#000000e');
 
-//2.
+//2. get names from text
 let text = `During today's presentation "Valentine Oragbakosi" presented first followed by "Nwosu Ifeoma Lucia" and then "Ibe Agwu" after which "Chinonso Williams Junior", "Ndife Uchenna", "Ehiogu Chika Josephine" and finally "Chidera Jennifer". "Ebuka " will be presenting tomorrow.`
-
 var everyone = text.match(/"(?:\w\s*)+"/g);
 console.log(everyone);
 
 
-//3.
+//3.convert url to link
 var data = `Visit http://genesystechhub.com/ere for more information about Genesys.`
 function linkize(data){
     var urlPattern = /((?:https?|ftps?):\/\/(\w+(?:\.\w{2,})+(?:[\/\w%\+]+\/?)*))/gi;
