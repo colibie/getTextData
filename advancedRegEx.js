@@ -12,14 +12,16 @@
 
 //1. HTML colours: 
 function checkColour(color){
-    var pattern = new RegExp("(?:^#[a-fA-F0-9]{3,8})$", "gim");
+    // var pattern = new RegExp("(?:#[a-f0-9]{3,8})", "gim"); //raise an issue..\b does not work in object constructors but works in literal
+    //corrected form;
+    var pattern = new RegExp("#(?:[a-f0-9]{3}|[a-f0-9]{6}|[a-f0-9]{8})", "gim"); //not working...
     if (pattern.test(color)){
         return console.log(`Yeayyy, ${color} is a valid hex value`);
     }else{
         return console.log(`Oh no, ${color} aint a valid hex value`);
     }
 }
-checkColour('#000000e');
+checkColour('#000');
 
 //2. get names from text
 let text = `During today's presentation "Valentine Oragbakosi" presented first followed by "Nwosu Ifeoma Lucia" and then "Ibe Agwu" after which "Chinonso Williams Junior", "Ndife Uchenna", "Ehiogu Chika Josephine" and finally "Chidera Jennifer". "Ebuka " will be presenting tomorrow.`
@@ -28,10 +30,12 @@ console.log(everyone);
 
 
 //3.convert url to link
-var data = `Visit http://genesystechhub.com/ere for more information about Genesys.`
+var data = `Visit ftps://genesystechhub.com/ere for more information about Genesys.`
 function linkize(data){
-    var urlPattern = /((?:https?|ftps?):\/\/(\w+(?:\.\w{2,})+(?:[\/\w%\+]+\/?)*))/gi;
-    data = data.replace(urlPattern, `<a href="${'$1'}">${'$2'}</a>` )
+    // var urlPattern = /((?:https?|ftps?):\/\/(\w+(?:\.\w{2,})+(?:[\/\w%\+]+\/?)*))/gi;
+    //modified version
+    var urlPattern = /((?:ht|f)tps?:\/\/(\w+(?:\.\w{2,})+(?:[\/\w%\+]+\/?)*))/gi;
+    data = data.replace(urlPattern, `<a href="$1">$2</a>` )
     return console.log(data);
 }
 linkize(data);
